@@ -4,9 +4,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Eye, EyeOff, Leaf, Mail, Lock } from 'lucide-react'
-import { useDispatch } from 'react-redux'
 import { authService } from '@/services/auth.service'
-import { setCredentials, setAuthError } from '@/store/slices/authSlice'
+import { useAppDispatch, setCredentials, setAuthError } from '@/store'
 
 // ── Validation Schema ─────────────────────────────────────────────────────────
 const loginSchema = z.object({
@@ -19,7 +18,7 @@ type LoginFormData = z.infer<typeof loginSchema>
 // ── Component ─────────────────────────────────────────────────────────────────
 export function LoginPage() {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const [showPassword, setShowPassword] = useState(false)
   const [serverError, setServerError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)

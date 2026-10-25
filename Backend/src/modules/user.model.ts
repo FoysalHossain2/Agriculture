@@ -97,7 +97,9 @@ const userSchema = new Schema<IUser, IUserModel>(
     phone: {
       type: String,
       trim: true,
-      default: null,
+      sparse: true,
+      unique: true,
+      match: [/^01[3-9]\d{8}$/, 'Please provide a valid Bangladeshi phone number'],
     },
 
     address: {

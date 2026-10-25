@@ -184,6 +184,32 @@ body {
   animation: pulse-green 2s infinite;
 }
 
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 3s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-150%);
+  }
+  60%, 100% {
+    transform: translateX(150%);
+  }
+}
+
+.animate-sweep {
+  animation: sweep 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 .delay-100 {
   animation-delay: 100ms;
 }

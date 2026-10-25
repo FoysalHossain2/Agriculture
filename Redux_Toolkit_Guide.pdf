@@ -1,0 +1,452 @@
+%PDF-1.4
+1 0 obj
+<< /Length 3168 >>
+stream
+q
+0.102 0.420 0.208 rg
+0 770 595.28 72 re
+f
+Q
+BT
+/F1 18 Tf
+1 1 1 rg
+50 795 Td (AgFarm " Redux Toolkit \(RTK\) Complete Guide) Tj
+/F2 10 Tf
+0.9 0.95 0.9 rg
+0 -16 Td (Architecture, Slices, State Persistence & Frontend UI Integration) Tj
+ET
+BT
+/F1 13 Tf
+0.102 0.36 0.18 rg
+50 713 Td (1. Frontend UI Diagnosis & Resolved Issues) Tj
+ET
+BT
+/F2 10 Tf
+0.05 0.05 0.05 rg
+50 692 Td (Why was the frontend UI not showing or appearing inactive?) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 678 Td (1. Vite Network Binding: By default, Vite binds to [::1] \(IPv6 loopback\). On Windows, browsers attempting to) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 664 Td (   access http://localhost:5173 or 127.0.0.1 can fail if IPv4/IPv6 resolution is misconfigured.) Tj
+ET
+BT
+/F2 9 Tf
+0.1 0.45 0.2 rg
+58 650 Td (   Fix Applied: Configured server: { host: true, port: 5173 } in vite.config.ts to bind to 0.0.0.0 & ::.) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 636 Td (2. Ephemeral Redux Auth State: authSlice was resetting user and accessToken to null on refresh.) Tj
+ET
+BT
+/F2 9 Tf
+0.1 0.45 0.2 rg
+58 622 Td (   Fix Applied: Implemented automatic localStorage synchronization in authSlice \(initialState & reducers\).) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 608 Td (3. Missing Bearer Token: Axios instance in src/lib/api.ts was not injecting the Authorization header.) Tj
+ET
+BT
+/F2 9 Tf
+0.1 0.45 0.2 rg
+58 594 Td (   Fix Applied: Added an Axios request interceptor that automatically attaches Bearer <token>.) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 580 Td (4. Missing Typed Hooks & Barrel Export: Official RTK recommends useAppDispatch & useAppSelector.) Tj
+ET
+BT
+/F2 9 Tf
+0.1 0.45 0.2 rg
+58 566 Td (   Fix Applied: Created src/store/hooks.ts and src/store/index.ts barrel exports.) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 552 Td (5. Missing Route Fallback: Any unmatched route rendered blank. Added <Route path="*" element={<Navigate to="/" />} />.) Tj
+ET
+q
+0.85 0.88 0.85 RG 0.5 w
+50 542 m 545 542 l S
+Q
+BT
+/F1 13 Tf
+0.102 0.36 0.18 rg
+50 507 Td (2. Redux Toolkit \(RTK\) Core Architecture) Tj
+ET
+BT
+/F2 9.5 Tf
+0.15 0.2 0.15 rg
+50 486.5 Td (Redux Toolkit is the official, opinionated, batteries-included toolset for efficient Redux development.) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+50 472.5 Td (It solves the 3 major classic Redux headaches: boilerplate setup, complex store configs, and immutability bugs.) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.35 0.15 rg
+50 458 Td (Key Building Blocks of Redux Toolkit:) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 444 Td (" configureStore\(\): Simplifies store setup with Redux Thunk and Redux DevTools enabled by default.) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 430 Td (" createSlice\(\): Generates action creators, action types, and reducers in one unified declarative block.) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 416 Td (" Built-in Immer: Lets you write "mutative" code \(state.user = action.payload\) that safely creates immutable copies.) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 402 Td (" createAsyncThunk\(\): Handles asynchronous lifecycles \(pending, fulfilled, rejected\) cleanly.) Tj
+ET
+BT
+/F2 8 Tf
+0.5 0.5 0.5 rg
+50 30 Td (AgFarm Technical Architecture Guide  Page 1 of 3) Tj
+ET
+endstream
+endobj
+2 0 obj
+<< /Length 3386 >>
+stream
+q
+0.102 0.420 0.208 rg
+0 770 595.28 72 re
+f
+Q
+BT
+/F1 18 Tf
+1 1 1 rg
+50 795 Td (AgFarm " Redux Toolkit \(RTK\) Complete Guide) Tj
+/F2 10 Tf
+0.9 0.95 0.9 rg
+0 -16 Td (Architecture, Slices, State Persistence & Frontend UI Integration) Tj
+ET
+BT
+/F1 13 Tf
+0.102 0.36 0.18 rg
+50 713 Td (3. Implementing Slices with createSlice) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+50 693 Td (Below is the exact production implementation of authSlice.ts with safe state persistence:) Tj
+ET
+q
+0.95 0.96 0.95 rg
+50 301 495 386 re
+f
+0.8 0.85 0.8 RG 1 w
+50 301 495 386 re
+S
+Q
+BT
+/F3 8.5 Tf
+0.1 0.25 0.1 rg
+60 675 Td (import { createSlice, type PayloadAction } from '@reduxjs/toolkit') Tj
+-60 0 Td
+60 663 Td (import type { AuthUser } from '@/services/auth.service') Tj
+-60 0 Td
+60 651 Td () Tj
+-60 0 Td
+60 639 Td (const storedToken = typeof window !== 'undefined' ? localStorage.getItem\('accessToken'\) : null) Tj
+-60 0 Td
+60 627 Td (const storedUserStr = typeof window !== 'undefined' ? localStorage.getItem\('authUser'\) : null) Tj
+-60 0 Td
+60 615 Td () Tj
+-60 0 Td
+60 603 Td (const initialState = {) Tj
+-60 0 Td
+60 591 Td (  user: storedUserStr ? JSON.parse\(storedUserStr\) : null,) Tj
+-60 0 Td
+60 579 Td (  accessToken: storedToken,) Tj
+-60 0 Td
+60 567 Td (  isAuthenticated: Boolean\(storedToken\),) Tj
+-60 0 Td
+60 555 Td (  isLoading: false, error: null) Tj
+-60 0 Td
+60 543 Td (}) Tj
+-60 0 Td
+60 531 Td () Tj
+-60 0 Td
+60 519 Td (export const authSlice = createSlice\({) Tj
+-60 0 Td
+60 507 Td (  name: 'auth',) Tj
+-60 0 Td
+60 495 Td (  initialState,) Tj
+-60 0 Td
+60 483 Td (  reducers: {) Tj
+-60 0 Td
+60 471 Td (    setCredentials\(state, action: PayloadAction<{ user: AuthUser; accessToken: string }>\) {) Tj
+-60 0 Td
+60 459 Td (      state.user = action.payload.user) Tj
+-60 0 Td
+60 447 Td (      state.accessToken = action.payload.accessToken) Tj
+-60 0 Td
+60 435 Td (      state.isAuthenticated = true) Tj
+-60 0 Td
+60 423 Td (      localStorage.setItem\('accessToken', action.payload.accessToken\)) Tj
+-60 0 Td
+60 411 Td (      localStorage.setItem\('authUser', JSON.stringify\(action.payload.user\)\)) Tj
+-60 0 Td
+60 399 Td (    },) Tj
+-60 0 Td
+60 387 Td (    clearCredentials\(state\) {) Tj
+-60 0 Td
+60 375 Td (      state.user = null; state.accessToken = null; state.isAuthenticated = false) Tj
+-60 0 Td
+60 363 Td (      localStorage.removeItem\('accessToken'\)) Tj
+-60 0 Td
+60 351 Td (      localStorage.removeItem\('authUser'\)) Tj
+-60 0 Td
+60 339 Td (    }) Tj
+-60 0 Td
+60 327 Td (  }) Tj
+-60 0 Td
+60 315 Td (}\)) Tj
+-60 0 Td
+ET
+BT
+/F1 13 Tf
+0.102 0.36 0.18 rg
+50 266 Td (4. Configuring the Central Store \(store.ts\)) Tj
+ET
+q
+0.95 0.96 0.95 rg
+50 120 495 134 re
+f
+0.8 0.85 0.8 RG 1 w
+50 120 495 134 re
+S
+Q
+BT
+/F3 8.5 Tf
+0.1 0.25 0.1 rg
+60 242 Td (import { configureStore } from '@reduxjs/toolkit') Tj
+-60 0 Td
+60 230 Td (import uiSlice from './slices/uiSlice') Tj
+-60 0 Td
+60 218 Td (import authSlice from './slices/authSlice') Tj
+-60 0 Td
+60 206 Td () Tj
+-60 0 Td
+60 194 Td (export const store = configureStore\({) Tj
+-60 0 Td
+60 182 Td (  reducer: { ui: uiSlice, auth: authSlice }) Tj
+-60 0 Td
+60 170 Td (}\)) Tj
+-60 0 Td
+60 158 Td () Tj
+-60 0 Td
+60 146 Td (export type RootState = ReturnType<typeof store.getState>) Tj
+-60 0 Td
+60 134 Td (export type AppDispatch = typeof store.dispatch) Tj
+-60 0 Td
+ET
+BT
+/F2 8 Tf
+0.5 0.5 0.5 rg
+50 30 Td (AgFarm Technical Architecture Guide  Page 2 of 3) Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Length 2834 >>
+stream
+q
+0.102 0.420 0.208 rg
+0 770 595.28 72 re
+f
+Q
+BT
+/F1 18 Tf
+1 1 1 rg
+50 795 Td (AgFarm " Redux Toolkit \(RTK\) Complete Guide) Tj
+/F2 10 Tf
+0.9 0.95 0.9 rg
+0 -16 Td (Architecture, Slices, State Persistence & Frontend UI Integration) Tj
+ET
+BT
+/F1 13 Tf
+0.102 0.36 0.18 rg
+50 713 Td (5. Typed React-Redux Hooks \(hooks.ts\)) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+50 693 Td (Instead of importing untyped useDispatch/useSelector into components, use pre-typed hooks:) Tj
+ET
+q
+0.95 0.96 0.95 rg
+50 601 495 86 re
+f
+0.8 0.85 0.8 RG 1 w
+50 601 495 86 re
+S
+Q
+BT
+/F3 8.5 Tf
+0.1 0.25 0.1 rg
+60 675 Td (import { useDispatch, useSelector } from 'react-redux') Tj
+-60 0 Td
+60 663 Td (import type { AppDispatch, RootState } from './store') Tj
+-60 0 Td
+60 651 Td () Tj
+-60 0 Td
+60 639 Td (// Pre-typed hooks for components) Tj
+-60 0 Td
+60 627 Td (export const useAppDispatch = useDispatch.withTypes<AppDispatch>\(\)) Tj
+-60 0 Td
+60 615 Td (export const useAppSelector = useSelector.withTypes<RootState>\(\)) Tj
+-60 0 Td
+ET
+BT
+/F1 13 Tf
+0.102 0.36 0.18 rg
+50 566 Td (6. How to Use in React Components \(e.g., Navbar / Login\)) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+50 546 Td (Read state using useAppSelector and update state using useAppDispatch:) Tj
+ET
+q
+0.95 0.96 0.95 rg
+50 322 495 218 re
+f
+0.8 0.85 0.8 RG 1 w
+50 322 495 218 re
+S
+Q
+BT
+/F3 8.5 Tf
+0.1 0.25 0.1 rg
+60 528 Td (import { useAppDispatch, useAppSelector, setCredentials, clearCredentials } from '@/store') Tj
+-60 0 Td
+60 516 Td () Tj
+-60 0 Td
+60 504 Td (export function UserProfileHeader\(\) {) Tj
+-60 0 Td
+60 492 Td (  const dispatch = useAppDispatch\(\)) Tj
+-60 0 Td
+60 480 Td (  const { user, isAuthenticated } = useAppSelector\(\(state\) => state.auth\)) Tj
+-60 0 Td
+60 468 Td () Tj
+-60 0 Td
+60 456 Td (  if \(!isAuthenticated\) {) Tj
+-60 0 Td
+60 444 Td (    return <Link to='/login'>Sign In</Link>) Tj
+-60 0 Td
+60 432 Td (  }) Tj
+-60 0 Td
+60 420 Td () Tj
+-60 0 Td
+60 408 Td (  return \() Tj
+-60 0 Td
+60 396 Td (    <div>) Tj
+-60 0 Td
+60 384 Td (      <span>Welcome back, {user?.fullname}!</span>) Tj
+-60 0 Td
+60 372 Td (      <button onClick={\(\) => dispatch\(clearCredentials\(\)\)}>Logout</button>) Tj
+-60 0 Td
+60 360 Td (    </div>) Tj
+-60 0 Td
+60 348 Td (  \)) Tj
+-60 0 Td
+60 336 Td (}) Tj
+-60 0 Td
+ET
+BT
+/F1 13 Tf
+0.102 0.36 0.18 rg
+50 287 Td (7. How to View the Frontend UI) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.4 0.15 rg
+58 266.5 Td (1. Open your browser and navigate to: http://localhost:5173 or http://127.0.0.1:5173) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 252.5 Td (2. The dev server is already running! \(Vite now responds on both IPv4 and IPv6\).) Tj
+ET
+BT
+/F2 9 Tf
+0.15 0.2 0.15 rg
+58 238.5 Td (3. Test the navbar: Click "Sign In" or "Register" to test Redux authentication in real-time!) Tj
+ET
+BT
+/F2 8 Tf
+0.5 0.5 0.5 rg
+50 30 Td (AgFarm Technical Architecture Guide  Page 3 of 3) Tj
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+8 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R /F4 7 0 R >> >> /Contents 1 0 R >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R /F4 7 0 R >> >> /Contents 2 0 R >>
+endobj
+10 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R /F4 7 0 R >> >> /Contents 3 0 R >>
+endobj
+11 0 obj
+<< /Type /Pages /Kids [ 8 0 R 9 0 R 10 0 R ] /Count 3 >>
+endobj
+12 0 obj
+<< /Type /Catalog /Pages 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000003229 00000 n 
+0000006667 00000 n 
+0000009553 00000 n 
+0000009628 00000 n 
+0000009698 00000 n 
+0000009766 00000 n 
+0000009839 00000 n 
+0000010002 00000 n 
+0000010165 00000 n 
+0000010329 00000 n 
+0000010402 00000 n 
+trailer
+<< /Size 13 /Root 12 0 R >>
+startxref
+10453
+%%EOF

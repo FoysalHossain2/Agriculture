@@ -6,6 +6,17 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 })
 
+// ── Request Interceptor ───────────────────────────────────────────────────────
+api.interceptors.request.use((config) => {
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('accessToken')
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
+  }
+  return config
+})
+
 // ── Response Interceptor ──────────────────────────────────────────────────────
 api.interceptors.response.use(
   (response) => response,

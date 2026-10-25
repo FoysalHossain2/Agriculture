@@ -1,14 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector, closeConsultationModal } from '@/store'
 import { X, Send } from 'lucide-react'
-import type { RootState } from '@/store/store'
-import { closeConsultationModal } from '@/store/slices/uiSlice'
 import { useState } from 'react'
 
 export function ConsultationModal() {
-  const dispatch = useDispatch()
-  const isOpen = useSelector(
-    (state: RootState) => state.ui.consultationModalOpen,
-  )
+  const dispatch = useAppDispatch()
+  const isOpen = useAppSelector((state) => state.ui.consultationModalOpen)
   const [submitted, setSubmitted] = useState(false)
 
   if (!isOpen) return null

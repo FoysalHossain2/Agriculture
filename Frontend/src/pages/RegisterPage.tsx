@@ -4,9 +4,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Eye, EyeOff, Leaf, User, Mail, Lock, ChevronDown } from 'lucide-react'
-import { useDispatch } from 'react-redux'
 import { authService, type UserRole } from '@/services/auth.service'
-import { setCredentials, setAuthError } from '@/store/slices/authSlice'
+import { useAppDispatch, setCredentials, setAuthError } from '@/store'
 
 // ── Validation Schema ─────────────────────────────────────────────────────────
 const registerSchema = z
@@ -48,7 +47,7 @@ const ROLE_OPTIONS: { value: UserRole; label: string }[] = [
 // ── Component ─────────────────────────────────────────────────────────────────
 export function RegisterPage() {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirm, setShowConfirm] = useState(false)
   const [serverError, setServerError] = useState<string | null>(null)

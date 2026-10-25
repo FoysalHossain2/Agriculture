@@ -34,7 +34,7 @@ export function HeroSection() {
 
       {/* ── Content ── */}
       <div className="relative flex-1 flex items-end pb-20 lg:pb-28 pt-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
 
             {/* Left: Main Copy */}
@@ -142,19 +142,7 @@ export function HeroSection() {
         </button>
       </div>
 
-      {/* ── Play video strip ── */}
-      <div className="relative bg-gradient-to-r from-[#1a6b35] to-[#28a745] py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-              <Play className="w-4 h-4 text-white fill-white" />
-            </div>
-            <span className="text-white font-medium text-sm">
-              Watch how AgFarm transforms modern agriculture
-            </span>
-          </div>
-        </div>
-      </div>
+
     </section>
   )
 }

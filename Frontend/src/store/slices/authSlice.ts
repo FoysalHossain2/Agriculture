@@ -9,10 +9,21 @@ interface AuthState {
   error: string | null
 }
 
+const storedToken = typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null
+const storedUserStr = typeof window !== 'undefined' ? localStorage.getItem('authUser') : null
+let storedUser: AuthUser | null = null
+try {
+  if (storedUserStr) {
+    storedUser = JSON.parse(storedUserStr)
+  }
+} catch {
+  storedUser = null
+}
+
 const initialState: AuthState = {
-  user: null,
-  accessToken: null,
-  isAuthenticated: false,
+  user: storedUser,
+  accessToken: storedToken,
+  isAuthenticated: Boolean(storedToken),
   isLoading: false,
   error: null,
 }
@@ -29,11 +40,22 @@ const authSlice = createSlice({
       state.accessToken = action.payload.accessToken
       state.isAuthenticated = true
       state.error = null
+
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('accessToken', action.payload.accessToken)
+        localStorage.setItem('authUser', JSON.stringify(action.payload.user))
+      }
     },
     clearCredentials(state) {
       state.user = null
       state.accessToken = null
       state.isAuthenticated = false
+      state.error = null
+
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('authUser')
+      }
     },
     setAuthLoading(state, action: PayloadAction<boolean>) {
       state.isLoading = action.payload
