@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Leaf, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import { Leaf, Mail, Phone, MapPin } from 'lucide-react'
+import { useAppSelector } from '@/store'
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -36,9 +37,27 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 const FOOTER_LINKS = {
-  Company: ['About Us', 'Our Team', 'Careers', 'Press', 'Blog'],
-  Solutions: ['Crop Management', 'Smart Irrigation', 'Soil Analysis', 'Precision Farming', 'Agri Analytics'],
-  Support: ['Help Center', 'Documentation', 'API Reference', 'Community', 'Contact'],
+  Services: [
+    { label: 'Crop Management', href: '#services' },
+    { label: 'Soil Testing & Fertility', href: '#services' },
+    { label: 'Smart Irrigation', href: '#services' },
+    { label: 'Pest & Disease Control', href: '#services' },
+    { label: 'Farm Business Advisory', href: '#services' },
+  ],
+  Solutions: [
+    { label: 'Rice & Paddy Care', href: '#crop-solutions' },
+    { label: 'Vegetable Production', href: '#crop-solutions' },
+    { label: 'Wheat & Cereals', href: '#crop-solutions' },
+    { label: 'Fruits & Orchards', href: '#crop-solutions' },
+    { label: 'Digital Farm Cockpit', href: '#digital-tools' },
+  ],
+  Resources: [
+    { label: 'Disease Guides', href: '#resources' },
+    { label: 'Fertilizer Best Practices', href: '#resources' },
+    { label: 'Seasonal Calendars', href: '#resources' },
+    { label: 'Farmer Workshops', href: '#resources' },
+    { label: 'Agronomy FAQs', href: '#faqs' },
+  ],
 }
 
 const SOCIALS = [
@@ -51,51 +70,34 @@ const SOCIALS = [
 const CURRENT_YEAR = new Date().getFullYear()
 
 export function Footer() {
-  return (
-    <footer className="bg-[#0f1a0f] text-white">
-      {/* CTA Banner */}
-      <div className="bg-gradient-to-r from-[#1a6b35] to-[#28a745]">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="font-display font-bold text-2xl md:text-3xl text-white">
-              Ready to Transform Your Farm?
-            </h3>
-            <p className="text-white/80 mt-1">
-              Join 48,000+ farmers already using AgFarm solutions.
-            </p>
-          </div>
-          <Link
-            to="/#contact"
-            className="inline-flex items-center gap-2 bg-white text-[#1a6b35] font-semibold px-8 py-3 rounded-full hover:bg-[#eef2ee] transition-colors duration-200 whitespace-nowrap"
-          >
-            Get Started Free <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </div>
+  const language = useAppSelector((s) => s.ui.language) || 'en'
 
-      {/* Main Footer */}
+  return (
+    <footer className="bg-[#121f11] text-white border-t border-white/10">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-[#1a6b35] flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 rounded-2xl bg-[#245C36] flex items-center justify-center shadow-lg">
+                <Leaf className="w-5 h-5 text-[#d7f75b]" />
               </div>
-              <span className="font-display font-bold text-xl">AgFarm</span>
+              <span className="font-display font-black text-2xl tracking-tight text-white">AgFarm</span>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
-              We help farmers improve productivity and sustainability through innovative agricultural solutions worldwide.
+            <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-sm">
+              {language === 'bn'
+                ? 'আমরা বাস্তবসম্মত ও বৈজ্ঞানিক কৃষি পরামর্শের মাধ্যমে কৃষকদের উৎপাদনশীলতা এবং টেকসই মুনাফা বৃদ্ধি করতে কাজ করছি।'
+                : 'Empowering farmers with practical, evidence-based agricultural consulting, soil stewardship, and digital intelligence.'}
             </p>
-            <div className="flex flex-col gap-3 text-sm text-white/60">
-              <a href="mailto:hello@agfarm.com" className="flex items-center gap-2 hover:text-[#8bc34a] transition-colors">
-                <Mail className="w-4 h-4" /> hello@agfarm.com
+            <div className="flex flex-col gap-3 text-sm text-white/70">
+              <a href="mailto:advisory@agfarm.org" className="flex items-center gap-2.5 hover:text-[#d7f75b] transition-colors">
+                <Mail className="w-4 h-4 text-[#d7f75b]" /> advisory@agfarm.org
               </a>
-              <a href="tel:+18005551234" className="flex items-center gap-2 hover:text-[#8bc34a] transition-colors">
-                <Phone className="w-4 h-4" /> +1 800 555 1234
+              <a href="tel:+18005551234" className="flex items-center gap-2.5 hover:text-[#d7f75b] transition-colors">
+                <Phone className="w-4 h-4 text-[#d7f75b]" /> +1 (800) 555-AGRI
               </a>
-              <span className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" /> 123 Green Ave, AgCity, USA
+              <span className="flex items-center gap-2.5">
+                <MapPin className="w-4 h-4 text-[#d7f75b]" /> 42 Agriculture Boulevard, Green Valley
               </span>
             </div>
           </div>
@@ -103,16 +105,16 @@ export function Footer() {
           {/* Link Columns */}
           {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
             <div key={heading}>
-              <h4 className="font-semibold text-white mb-4">{heading}</h4>
+              <h4 className="font-display font-bold text-white mb-4 text-base tracking-wide">{heading}</h4>
               <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
-                  <li key={link}>
-                    <Link
-                      to="#"
-                      className="text-white/55 text-sm hover:text-[#8bc34a] transition-colors duration-200"
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-white/65 text-sm hover:text-[#d7f75b] transition-colors duration-200"
                     >
-                      {link}
-                    </Link>
+                      {link.label}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -122,8 +124,8 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-sm">
-            © {CURRENT_YEAR} AgFarm. All rights reserved.
+          <p className="text-white/50 text-xs sm:text-sm">
+            © {CURRENT_YEAR} AgFarm Platform. All rights reserved. Built for modern agricultural excellence.
           </p>
           <div className="flex items-center gap-3">
             {SOCIALS.map(({ icon: Icon, href, label }) => (
@@ -131,7 +133,7 @@ export function Footer() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-[#1a6b35] hover:text-white transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-[#245C36] hover:text-[#d7f75b] transition-all duration-200"
               >
                 <Icon className="w-4 h-4" />
               </a>

@@ -17,11 +17,14 @@ import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
   { label: 'Home', labelBn: 'হোম', to: '/' },
-  { label: 'About Us', labelBn: 'আমাদের সম্পর্কে', to: '/#about' },
   { label: 'Challenges', labelBn: 'চ্যালেঞ্জসমূহ', to: '/#challenges' },
-  { label: 'Solutions', labelBn: 'সমাধান', to: '/solutions' },
-  { label: 'Innovation', labelBn: 'উদ্ভাবন', to: '/#innovation' },
-  { label: 'Projects', labelBn: 'প্রকল্প', to: '/#projects' },
+  { label: 'Services', labelBn: 'সেবাসমূহ', to: '/#services' },
+  { label: 'Process', labelBn: 'প্রক্রিয়া', to: '/#how-it-works' },
+  { label: 'Crops', labelBn: 'ফসল সমাধান', to: '/#crop-solutions' },
+  { label: 'Digital Tools', labelBn: 'ডিজিটাল টুলস', to: '/#digital-tools' },
+  { label: 'Why Us', labelBn: 'কেন আমরা', to: '/#why-choose-us' },
+  { label: 'Experts', labelBn: 'বিশেষজ্ঞ দল', to: '/#experts' },
+  { label: 'FAQs', labelBn: 'প্রশ্নোত্তর', to: '/#faqs' },
   { label: 'Contact', labelBn: 'যোগাযোগ', to: '/#contact' },
 ] as const
 

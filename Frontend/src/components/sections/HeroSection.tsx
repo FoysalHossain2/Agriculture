@@ -1,5 +1,7 @@
 import { ArrowRight, Play, Users, Globe, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useAppDispatch } from '@/store'
+import { openConsultationModal } from '@/store'
 
 // Hero statistics
 const STATS = [
@@ -9,8 +11,10 @@ const STATS = [
 ]
 
 export function HeroSection() {
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+  const dispatch = useAppDispatch()
+
+  const scrollToNext = () => {
+    document.getElementById('challenges')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -66,7 +70,7 @@ export function HeroSection() {
                   id="hero-explore-btn"
                   variant="outline"
                   size="lg"
-                  onClick={() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('challenges')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Explore Solutions
                 </Button>
@@ -74,6 +78,7 @@ export function HeroSection() {
                   id="hero-consult-btn"
                   variant="accent"
                   size="lg"
+                  onClick={() => dispatch(openConsultationModal())}
                 >
                   Free Consultation
                 </Button>
@@ -134,9 +139,9 @@ export function HeroSection() {
       {/* ── Scroll Indicator ── */}
       <div className="relative flex justify-center pb-8">
         <button
-          onClick={scrollToAbout}
+          onClick={scrollToNext}
           className="text-white/60 hover:text-white transition-colors duration-200 animate-float"
-          aria-label="Scroll to about section"
+          aria-label="Scroll to challenges section"
         >
           <ChevronDown className="w-6 h-6" />
         </button>

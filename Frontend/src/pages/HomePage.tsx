@@ -1,13 +1,17 @@
 import { HeroSection } from '@/components/sections/HeroSection'
-import { AboutSection } from '@/components/sections/AboutSection'
 import { FarmingChallengesSection } from '@/components/sections/FarmingChallengesSection'
+
 
 export function HomePage() {
   return (
     <>
+      {/* 01 — Hero & primary CTA */}
       <HeroSection />
-      <AboutSection />
+
+      {/* 02 — Farming challenges */}
       <FarmingChallengesSection />
+
+
     </>
   )
 }
